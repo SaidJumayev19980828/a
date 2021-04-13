@@ -2,7 +2,6 @@ package ir.mhkz.loginandsignup;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -17,30 +16,47 @@ import retrofit2.Response;
 
 public class GetCreditActivity extends AppCompatActivity {
 
-    TextView text1,text2,text3,text4,text5;
-    Button button;
+    TextView text1,bir_yillik_ish_haqi_tv,kafil_ism_familya_tv,kafil_ish_haqi_tv,kredit_summasi_tv;
+    Button klient_rasm,kredit_olish_btn,kafil_rasm,rasm1,rasm2;
     MyApiService myApiService;
 
 
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.credit_activity);
+        setContentView(R.layout.kredit_olish);
 
         String passportNumber = getIntent().getStringExtra("passportNumber");
         System.out.println("DATA FROM INTENT"+passportNumber);
 
 
-        myApiService = ApiUtils.getAPIService1(passportNumber);
+        myApiService = ApiUtils.getAPIService1(passportNumber+"/");
 
-        text1=(TextView)findViewById(R.id.reg_username);
-        text2=(TextView)findViewById(R.id.reg_password);
-        text3=(TextView)findViewById(R.id.reg_lastName);
-        text4=(TextView)findViewById(R.id.reg_firstName );
-        text5=(TextView)findViewById(R.id.reg_lastName2);
-        button=(Button)findViewById(R.id.reg_register);
+        klient_rasm=(Button) findViewById(R.id.ummumiy_kredit);
+        bir_yillik_ish_haqi_tv=(TextView)findViewById(R.id.qarzdorlar_ruy);
+        kafil_rasm=(Button) findViewById(R.id.tulab_bulinadigan_sana);
+        kafil_ism_familya_tv=(TextView)findViewById(R.id.foyda);
+        kafil_ish_haqi_tv=(TextView)findViewById(R.id.kredit_muddati);
+        kredit_olish_btn=(Button)findViewById(R.id.roziman_btn);
+        kredit_summasi_tv=(TextView)findViewById(R.id.har_oy_tulaydigan_summa);
+        rasm1=(Button)findViewById(R.id.rasm1);
+        rasm2=(Button)findViewById(R.id.rasm2);
+        rasm1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+                photoPickerIntent.setType("image/*");
+                startActivityForResult(photoPickerIntent, 1);
+            }
+        });
+        rasm2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+                photoPickerIntent.setType("image/*");
+                startActivityForResult(photoPickerIntent, 1);
+            }
+        });
 
 
-        button.setOnClickListener(new View.OnClickListener() {
+       kredit_olish_btn.setOnClickListener(new View.OnClickListener() {
 
 
 
@@ -50,40 +66,40 @@ public class GetCreditActivity extends AppCompatActivity {
 
 
 
-                if (text1.getText().toString().trim().isEmpty()) {
+                if (bir_yillik_ish_haqi_tv.getText().toString().trim().isEmpty()) {
 
-                   text1.setError("Please fill out this field");
+                   bir_yillik_ish_haqi_tv.setError("Please fill out this field");
                 } else {
                     //Here you can write the codes for checking username
                 }
-                if (text2.getText().toString().trim().isEmpty()) {
+                if (kafil_ism_familya_tv.getText().toString().trim().isEmpty()) {
                    // txtInLayoutRegPassword.setPasswordVisibilityToggleEnabled(false);
-                    text2.setError("Please fill out this field");
+                    kafil_ism_familya_tv.setError("Please fill out this field");
                 } else {
                    // txtInLayoutRegPassword.setPasswordVisibilityToggleEnabled(true);
                     //Here you can write the codes for checking password
                 }
-                if (text3.getText().toString().trim().isEmpty()) {
+                if (kafil_ish_haqi_tv.getText().toString().trim().isEmpty()) {
 
-                    text3.setError("Please fill out this field");
+                    kafil_ish_haqi_tv.setError("Please fill out this field");
                 } else {
                     //Here you can write the codes for checking firstname
 
                 }
-                if (text4.getText().toString().trim().isEmpty()) {
+                if (kredit_summasi_tv.getText().toString().trim().isEmpty()) {
 
-                  text4.setError("Please fill out this field");
+                  kredit_summasi_tv.setError("Please fill out this field");
                 } else {
                     //Here you can write the codes for checking lastname
                 }
 
 
-                String name=text1.getText().toString().trim();
-                String password=text2.getText().toString().trim();
-                String fName=text3.getText().toString().trim();
-                String lName=text4.getText().toString().trim();
-                int a=Integer.parseInt(text5.getText().toString());
-                int b=Integer.parseInt(text3.getText().toString());
+                String ish_haqi_yillik=bir_yillik_ish_haqi_tv.getText().toString().trim();
+                String ism_familya=kafil_ism_familya_tv.getText().toString().trim();
+                String kafil_ish_haqi=kafil_ish_haqi_tv.getText().toString().trim();
+                String kredit_summasi=kredit_summasi_tv.getText().toString().trim();
+                int a=Integer.parseInt(bir_yillik_ish_haqi_tv.getText().toString());
+                int b=Integer.parseInt(kredit_summasi_tv.getText().toString());
                 if(a>=b)
                 {
                     Toast.makeText(getApplicationContext(),"Barcha ma'lumotlar yuklandi",Toast.LENGTH_LONG).show();
@@ -95,7 +111,7 @@ public class GetCreditActivity extends AppCompatActivity {
                 }
 
 
-                updateData( name,  password, fName ,lName,passportNumber );
+                updateData( passportNumber ,ish_haqi_yillik,ism_familya, kafil_ish_haqi ,kredit_summasi);
 
             }
 
@@ -106,8 +122,8 @@ public class GetCreditActivity extends AppCompatActivity {
 
     }
 
-    public void updateData(String name, String password,String fNmae,String lName,String passportNumber) {
-        myApiService.updateData(name, password,fNmae,lName,passportNumber).enqueue(new Callback<UserDto>() {
+    public void updateData(String passportNumber,String ish_haqi_yillik, String ism_familya,String kafil_ish_haqi,String kredit_summasi) {
+        myApiService.updateData(passportNumber, ish_haqi_yillik,ism_familya,kafil_ish_haqi,kredit_summasi).enqueue(new Callback<UserDto>() {
             public void onResponse(Call<UserDto> call, Response<UserDto> response) {
                 if(response.isSuccessful()) {
 

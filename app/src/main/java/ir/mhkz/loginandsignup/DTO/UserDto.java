@@ -16,32 +16,33 @@ public class UserDto implements Serializable {
     @Expose
     @SerializedName("surname")
     private String surname;
-    @SerializedName("passport_number")
-    private String passport_number;
-//    @SerializedName("place_of_birth")
-//    private String place_of_birth;
-    @SerializedName("kafil_person_name")
-    private String kafil_person_name;
-    @SerializedName("kafil_passport_number")
-    private String kafil_passport_number;
-    @SerializedName("kafil_surname")
-    private String kafil_surname;
-    @SerializedName("kafil_place_of_birth")
-    private String kafil_place_of_birth;
-    @SerializedName("kafil_income_yearly")
-    private String kafil_income_yearly;
 
-    public UserDto(String date_of_birth, String name, String surname, String passport_number, String place_of_birth, String kafil_person_name, String kafil_passport_number, String kafil_surname, String kafil_place_of_birth, String kafil_income_yearly) {
+    @SerializedName("passportNumber")
+    private String passport_number;
+
+
+    @SerializedName("kafil_ish_haqi_yillik")
+    private String kafil_ish_haqi_yillik;
+
+    @SerializedName("kafil_ism_familya")
+    private String kafil_ism_familya;
+
+    @SerializedName("ish_haqi")
+    private String ish_haqi;
+
+    @SerializedName("kredit_summasi")
+    private String kredit_summasi;
+
+
+    public UserDto(String date_of_birth, String name, String surname, String passport_number, String kafil_ish_haqi_yillik, String kafil_ism_familya, String ish_haqi, String kredit_summasi) {
         this.date_of_birth = date_of_birth;
         this.name = name;
         this.surname = surname;
         this.passport_number = passport_number;
-//        this.place_of_birth = place_of_birth;
-        this.kafil_person_name = kafil_person_name;
-        this.kafil_passport_number = kafil_passport_number;
-        this.kafil_surname = kafil_surname;
-        this.kafil_place_of_birth = kafil_place_of_birth;
-        this.kafil_income_yearly = kafil_income_yearly;
+        this.kafil_ish_haqi_yillik = kafil_ish_haqi_yillik;
+        this.kafil_ism_familya = kafil_ism_familya;
+        this.ish_haqi = ish_haqi;
+        this.kredit_summasi = kredit_summasi;
     }
 
     public String getDate_of_birth() {
@@ -76,51 +77,35 @@ public class UserDto implements Serializable {
         this.passport_number = passport_number;
     }
 
-//    public String getPlace_of_birth() {
-//        return place_of_birth;
-//    }
-//
-//    public void setPlace_of_birth(String place_of_birth) {
-//        this.place_of_birth = place_of_birth;
-//    }
-
-    public String getKafil_person_name() {
-        return kafil_person_name;
+    public String getKafil_ish_haqi_yillik() {
+        return kafil_ish_haqi_yillik;
     }
 
-    public void setKafil_person_name(String kafil_person_name) {
-        this.kafil_person_name = kafil_person_name;
+    public void setKafil_ish_haqi_yillik(String kafil_ish_haqi_yillik) {
+        this.kafil_ish_haqi_yillik = kafil_ish_haqi_yillik;
     }
 
-    public String getKafil_passport_number() {
-        return kafil_passport_number;
+    public String getKafil_ism_familya() {
+        return kafil_ism_familya;
     }
 
-    public void setKafil_passport_number(String kafil_passport_number) {
-        this.kafil_passport_number = kafil_passport_number;
+    public void setKafil_ism_familya(String kafil_ism_familya) {
+        this.kafil_ism_familya = kafil_ism_familya;
     }
 
-    public String getKafil_surname() {
-        return kafil_surname;
+    public String getIsh_haqi() {
+        return ish_haqi;
     }
 
-    public void setKafil_surname(String kafil_surname) {
-        this.kafil_surname = kafil_surname;
+    public void setIsh_haqi(String ish_haqi) {
+        this.ish_haqi = ish_haqi;
     }
 
-    public String getKafil_place_of_birth() {
-        return kafil_place_of_birth;
+    public String getKredit_summasi() {
+        return kredit_summasi;
     }
 
-    public void setKafil_place_of_birth(String kafil_place_of_birth) {
-        this.kafil_place_of_birth = kafil_place_of_birth;
-    }
-
-    public String getKafil_income_yearly() {
-        return kafil_income_yearly;
-    }
-
-    public void setKafil_income_yearly(String kafil_income_yearly) {
-        this.kafil_income_yearly = kafil_income_yearly;
+    public void setKredit_summasi(String kredit_summasi) {
+        this.kredit_summasi = kredit_summasi;
     }
 }

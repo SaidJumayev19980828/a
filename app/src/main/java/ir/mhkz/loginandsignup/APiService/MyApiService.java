@@ -18,12 +18,15 @@ public interface MyApiService {
     @GET("user/admin")
     Call<List<UserDto>> getSpacecrafts();
 
+    @GET("user/admin")
+    Call<List<UserDto>> getSpacecrafts1();
     @POST("reg/details")
     @FormUrlEncoded
     Call<UserDto> savePost(@Field("name") String name,
-                        @Field("passportNumber") String surname,
-                        @Field("surname") String passport_number,
+                        @Field("surname") String surname,
+                        @Field("passportNumber") String passport_number,
                            @Field("date_of_birth")  String date_of_birth );
+
 
     @GET("reg/checkUser")
 
@@ -33,8 +36,8 @@ public interface MyApiService {
     @PUT("user/credit/{passportNumber}")
     @FormUrlEncoded
     Call<UserDto>updateData(@Path("passportNumber") String passportNumber,
-                            @Field("kafil_person_name") String kafil_person_name,
-                            @Field("kafil_passport_number") String  kafil_passport_number,
-                            @Field("kafil_surname") String kafil_surname,
-                            @Field("kafil_income_yearly") String kafil_income_yearly);
+                            @Field("kafil_ish_haqi_yillik") String kafil_person_name,
+                            @Field("kafil_ism_familya") String  kafil_passport_number,
+                            @Field("ish_haqi") String kafil_surname,
+                            @Field("kredit_summasi") String kafil_income_yearly);
 }

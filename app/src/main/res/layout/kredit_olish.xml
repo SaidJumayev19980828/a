@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/sana"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -32,8 +30,8 @@
 
     <LinearLayout
         android:id="@+id/LinearInfo"
-        android:layout_width="395dp"
-        android:layout_height="513dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:orientation="vertical"
         android:theme="@style/RegistrationPage"
@@ -43,10 +41,23 @@
         app:layout_constraintTop_toBottomOf="@+id/LinearRP">
 
 
+
+
+        <Button
+            android:id="@+id/rasm1"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="50dp"
+            android:hint="Klient rasmi"
+            android:inputType="text" />
+
+
         <android.support.design.widget.TextInputLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/txtInLayoutRegPassword"
-            android:layout_width="match_parent"
-            android:layout_height="69dp"
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/black">
 
@@ -56,86 +67,60 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
-                android:hint="Kredit foizi"
+                android:hint="Bir yillik ish haqi"
                 android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/txtInLayoutRegPassword1"
-            android:layout_width="match_parent"
-            android:layout_height="69dp"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/black">
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
 
             <android.support.design.widget.TextInputEditText
-                android:id="@+id/debil1"
+                android:id="@+id/foyda"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
-                android:hint="Kiritilgan kredit summasi"
-                android:inputType="text" />
-        </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/txtInLayoutRegPassword12"
-            android:layout_width="match_parent"
-            android:layout_height="69dp"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/black">
-
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/debil12"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:hint="Kredit muddati (min 6oy max 3 yil)"
-                android:inputType="text" />
-        </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/txtInLayoutRegPassword123"
-            android:layout_width="match_parent"
-            android:layout_height="69dp"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/black">
-
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/bank_hisobi"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:hint="To'lab bo'linadigan sana"
+                android:hint="Kafil ism familiyasi"
                 android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/txtInLayoutRegPassword1234"
-            android:layout_width="match_parent"
-            android:layout_height="69dp"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/black">
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
 
             <android.support.design.widget.TextInputEditText
-                android:id="@+id/debil1234"
+                android:id="@+id/kredit_muddati"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
-                android:hint="Har oy to'laydigan sana"
+                android:layout_weight="1"
+                android:hint="Kafil ish haqi"
                 android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
 
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
 
         <Button
+            android:id="@+id/rasm2"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginRight="50dp"
+            android:hint="Kafil rasmi"
+            android:inputType="text" />
 
-            android:id="@+id/foyda"
-            android:layout_width="fill_parent"
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/har_oy_tulaydigan_summa"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
-            android:hint="Olinayotgan sana"
-            android:inputType="datetime|text" />
+            android:hint="Kredit summasi (UZS)"
+            android:inputType="text" />
 
         <Button
             android:id="@+id/roziman_btn"
@@ -144,10 +129,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="25dp"
             android:layout_marginBottom="25dp"
-            android:text="Roziman"
+            android:text="Kredit olish"
             android:theme="@style/ButtonRegister" />
-
     </LinearLayout>
-
-
 </android.support.constraint.ConstraintLayout>

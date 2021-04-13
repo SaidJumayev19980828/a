@@ -46,7 +46,7 @@
             android:layout_height="wrap_content">
 
             <android.support.design.widget.TextInputEditText
-                android:id="@+id/reg_username"
+                android:id="@+id/ummumiy_kredit"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
@@ -64,13 +64,13 @@
             app:passwordToggleTint="@color/black">
 
             <android.support.design.widget.TextInputEditText
-                android:id="@+id/reg_password"
+                android:id="@+id/qarzdorlar_ruy"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
                 android:hint="Familya"
-                android:inputType="textPassword" />
+                android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -78,7 +78,7 @@
             android:layout_height="wrap_content">
 
             <android.support.design.widget.TextInputEditText
-                android:id="@+id/reg_firstName"
+                android:id="@+id/foyda"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content">
 
             <android.support.design.widget.TextInputEditText
-                android:id="@+id/reg_lastName"
+                android:id="@+id/tulab_bulinadigan_sana"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
@@ -106,12 +106,20 @@
             android:layout_height="wrap_content"/>
 
         <Button
-            android:id="@+id/reg_register"
+            android:id="@+id/rasm"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="150dp"
+            android:text="Rasm" />
+
+        <Button
+            android:id="@+id/roziman_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="25dp"
             android:layout_marginTop="25dp"
+
             android:text="@string/Register"
             android:theme="@style/ButtonRegister" />
     </LinearLayout>
