@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static List<UserDto> spacecrafts12;
     EditText username, password, reg_username, reg_password,
-            reg_firstName, reg_lastName, reg_email, reg_confirmemail,reg_familya,reg_passporrt,reg_tugilgan_sana;
+           reg_lastName, reg_email, reg_confirmemail,reg_familya,reg_passporrt,reg_tugilgan_sana;
     Button login, signUp, reg_register,rasm;
     TextInputLayout txtInLayoutUsername, txtInLayoutPassword, txtInLayoutRegPassword;
     CheckBox rememberMe;
